@@ -3,12 +3,14 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script>
        $(function(){
-            var origin  = "http://localhost:8080";
+            var origin  = window.location.origin;
             window.onmessage = function(event) {
-                console.log(event.source);
+                console.log('Page receives message');
                 $('#page-message').html('Message from frame ' + event.source + '"' + event.data + '"');
             }
-            $('#inner').get(0).contentWindow.postMessage('"Hello iframe"', origin);
+            $('#inner').load(function() {
+                $('#inner').get(0).contentWindow.postMessage('"Hello iframe"', origin);
+            });
         });
     </script>
 </head>

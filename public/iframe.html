@@ -3,6 +3,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script>
         window.onmessage = function(event) {
+            console.log('iframe receives message');
             event.source.postMessage('"Hi Page"', event.origin);   
             $('#page-message').html('Message from ' + event.source + ' "' + event.data + '"');
         };
