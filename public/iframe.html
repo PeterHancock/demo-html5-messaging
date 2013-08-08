@@ -1,0 +1,15 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script>
+        window.onmessage = function(event) {
+            event.source.postMessage('"Hi Page"', event.origin);   
+            $('#page-message').html('Message from ' + event.source + ' "' + event.data + '"');
+        };
+    </script>
+</head>
+<body>
+Message from page <span id="page-message">...</span>
+</body>
+</html>
+
